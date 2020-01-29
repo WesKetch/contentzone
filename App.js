@@ -11,6 +11,16 @@ import {
   ImageBackground
 } from "react-native";
 
+import Header from "./components/Header";
+import ContentCard from "./components/ContentCard";
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight
+  }
+});
+
 async function getContent() {
   try {
     let response = await fetch(
@@ -22,21 +32,6 @@ async function getContent() {
     console.error(error);
   }
 }
-
-const Card = ({ article }) => (
-  <View style={styles.card}>
-    <Image
-      style={{
-        width: 358,
-        height: 200,
-        borderTopLeftRadius: 5,
-        borderTopRightRadius: 5
-      }}
-      source={{ uri: article.urlToImage }}
-    />
-    <Text style={{ margin: 10 }}>{article.title}</Text>
-  </View>
-);
 
 export default function App() {
   const [articles, setState] = useState([]);
@@ -52,28 +47,12 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
+      <Header />
+      <ScrollView>
         {articles.map((article, index) => (
-          <Card key={index} article={article} />
+          <ContentCard key={index} article={article} />
         ))}
       </ScrollView>
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: Constants.statusBarHeight
-  },
-  card: {
-    borderRadius: 5,
-    borderWidth: 1.5,
-    borderColor: "#d6d7da",
-    marginVertical: 8,
-    marginHorizontal: 16
-  },
-  title: {
-    fontSize: 32
-  }
-});
