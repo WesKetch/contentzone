@@ -3,6 +3,7 @@ import { BottomNavigation, Text } from "react-native-paper";
 import TopNews from "./screens/TopNews";
 import Lifestyle from "./screens/Lifestyle";
 import Sports from "./screens/Sports";
+import Fun from "./screens/Fun";
 
 export default class MyComponent extends React.Component {
   state = {
@@ -10,7 +11,8 @@ export default class MyComponent extends React.Component {
     routes: [
       { key: "topNews", title: "Top News", icon: "newspaper" },
       { key: "lifestyle", title: "Lifestyle", icon: "help" },
-      { key: "sports", title: "Sports", icon: "basketball" }
+      { key: "sports", title: "Sports", icon: "basketball" },
+      { key: "fun", title: "Fun", icon: "puzzle-outline" }
     ]
   };
 
@@ -19,7 +21,8 @@ export default class MyComponent extends React.Component {
   _renderScene = BottomNavigation.SceneMap({
     topNews: TopNews,
     lifestyle: Lifestyle,
-    sports: Sports
+    sports: Sports,
+    fun: Fun
   });
 
   render() {

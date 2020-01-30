@@ -24,7 +24,7 @@ export default () => {
 
   useEffect(() => {
     async function fetchData() {
-      const data = await fetchNews("sports");
+      const data = await fetchNews("quiz");
       setState(data.articles);
     }
 
@@ -35,7 +35,7 @@ export default () => {
     <SafeAreaView style={styles.container}>
       <Header />
       <ScrollView>
-        <Text style={styles.text}>Sports</Text>
+        <Text style={styles.text}>Games</Text>
         {articles.map((article, index) => (
           <ContentCard key={index} article={article} />
         ))}
