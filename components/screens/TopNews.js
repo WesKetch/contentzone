@@ -1,3 +1,6 @@
+// TODO dry up these components, use a factory pattern or similar
+// method
+
 import React, { useState, useEffect } from "react";
 import Constants from "expo-constants";
 import { StyleSheet, Text, View, ScrollView, SafeAreaView } from "react-native";

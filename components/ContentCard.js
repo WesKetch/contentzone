@@ -1,3 +1,6 @@
+// TODO dry up these components, use a factory pattern or similar
+// method
+
 import React from "react";
 import {
   StyleSheet,
